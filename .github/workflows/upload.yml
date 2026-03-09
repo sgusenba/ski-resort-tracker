@@ -4,7 +4,10 @@ on:
   schedule:
     - cron: "0 8 * * *"
   workflow_dispatch:
-
+  
+permissions:
+  contents: write
+  
 jobs:
   scrape:
     runs-on: ubuntu-latest
@@ -25,8 +28,14 @@ jobs:
 
     - name: Commit updated data
       run: |
-        git config --global user.name github-actions
-        git config --global user.email actions@github.com
+        git config --global user.name "github-actions"
+        git config --global user.email "actions@github.com"
+
         git add data/history.json
-        git commit -m "update ski data" || echo "no changes"
-        git push
+
+        if git diff --staged --quiet; then
+          echo "No changes"
+        else
+          git commit -m "update ski data"
+          git push
+        fi
