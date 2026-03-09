@@ -1,4 +1,4 @@
-fetch("../data/history.json")
+fetch("data/history.json")
 .then(r=>r.json())
 .then(data=>{
 
