@@ -2,7 +2,7 @@ import json
 import datetime
 import os
 
-from scraper_v4 import scrape_resort
+from scraper_v3 import scrape_resort
 from resorts import RESORTS
 from season import season_active
 
@@ -30,10 +30,10 @@ def run():
 
     entry = {"date":today,"resorts":[]}
 
-    for r in RESORTS.values():
+      for r in RESORTS.values():
 
         entry["resorts"].append(
-            scrape_resort(r["name"])
+            scrape(r["url"], r["name"])
         )
 
     history.append(entry)
