@@ -33,7 +33,7 @@ def run():
     for r in RESORTS.values():
 
         entry["resorts"].append(
-            scrape(r["url"], r["name"])
+            scrape_resort(r["url"], r["name"])
         )
 
     history.append(entry)
