@@ -64,5 +64,62 @@
         "slopes_total": 0
       }
     ]
+  },
+  {
+    "date": "2026-03-10",
+    "resorts": [
+      {
+        "resort": "Kasberg",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "snow_valley_cm": null,
+        "snow_mountain_cm": null,
+        "new_snow_24h_cm": null,
+        "new_snow_7d_cm": null,
+        "slope_km_open": null,
+        "avalanche_level": null
+      },
+      {
+        "resort": "Feuerkogel",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "snow_valley_cm": null,
+        "snow_mountain_cm": null,
+        "new_snow_24h_cm": null,
+        "new_snow_7d_cm": null,
+        "slope_km_open": null,
+        "avalanche_level": null
+      },
+      {
+        "resort": "Gosau",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "snow_valley_cm": null,
+        "snow_mountain_cm": null,
+        "new_snow_24h_cm": null,
+        "new_snow_7d_cm": null,
+        "slope_km_open": null,
+        "avalanche_level": null
+      },
+      {
+        "resort": "Werfenweng",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "snow_valley_cm": null,
+        "snow_mountain_cm": null,
+        "new_snow_24h_cm": null,
+        "new_snow_7d_cm": null,
+        "slope_km_open": null,
+        "avalanche_level": null
+      }
+    ]
   }
 ]
