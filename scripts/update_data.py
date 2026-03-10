@@ -30,7 +30,7 @@ def run():
 
     entry = {"date":today,"resorts":[]}
 
-      for r in RESORTS.values():
+    for r in RESORTS.values():
 
         entry["resorts"].append(
             scrape(r["url"], r["name"])
