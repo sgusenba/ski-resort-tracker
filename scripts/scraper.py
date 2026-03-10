@@ -1,34 +1,76 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 
-def scrape(url, name):
+
+def extract_number(pattern, text):
+    m = re.search(pattern, text, re.IGNORECASE)
+    if m:
+        return int(m.group(1))
+    return None
+
+
+def extract_pair(pattern, text):
+    m = re.search(pattern, text, re.IGNORECASE)
+    if m:
+        return int(m.group(1)), int(m.group(2))
+    return None, None
+
+
+def scrape_resort(url, name):
 
     r = requests.get(url, timeout=20)
     soup = BeautifulSoup(r.text, "html.parser")
+    text = soup.get_text(" ", strip=True)
 
-    lifts_open = 0
-    lifts_total = 0
-    slopes_open = 0
-    slopes_total = 0
+    # --- lifts ---
+    lifts_open, lifts_total = extract_pair(
+        r"Lifte\s*(\d+)\s*/\s*(\d+)", text
+    )
 
-    for el in soup.find_all(["tr","li","div"]):
+    # --- slopes ---
+    slopes_open, slopes_total = extract_pair(
+        r"Pisten\s*(\d+)\s*/\s*(\d+)", text
+    )
 
-        text = el.get_text().lower()
+    # --- snow height ---
+    snow_valley = extract_number(
+        r"Schneehöhe\s*Tal\s*(\d+)\s*cm", text
+    )
 
-        if "lift" in text:
-            lifts_total += 1
-            if "geöffnet" in text or "open" in text:
-                lifts_open += 1
+    snow_mountain = extract_number(
+        r"Schneehöhe\s*Berg\s*(\d+)\s*cm", text
+    )
 
-        if "piste" in text or "slope" in text:
-            slopes_total += 1
-            if "geöffnet" in text or "open" in text:
-                slopes_open += 1
+    # --- new snow ---
+    new_snow_24 = extract_number(
+        r"Neuschnee\s*24h\s*(\d+)\s*cm", text
+    )
+
+    new_snow_7 = extract_number(
+        r"Neuschnee\s*7\s*Tage\s*(\d+)\s*cm", text
+    )
+
+    # --- open slope kilometers ---
+    slope_km_open = extract_number(
+        r"(\d+)\s*km\s*Pisten\s*offen", text
+    )
+
+    # --- avalanche level ---
+    avalanche = extract_number(
+        r"Lawinenwarnstufe\s*(\d)", text
+    )
 
     return {
         "resort": name,
         "lifts_open": lifts_open,
         "lifts_total": lifts_total,
         "slopes_open": slopes_open,
-        "slopes_total": slopes_total
+        "slopes_total": slopes_total,
+        "snow_valley_cm": snow_valley,
+        "snow_mountain_cm": snow_mountain,
+        "new_snow_24h_cm": new_snow_24,
+        "new_snow_7d_cm": new_snow_7,
+        "slope_km_open": slope_km_open,
+        "avalanche_level": avalanche
     }
