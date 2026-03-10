@@ -2,7 +2,7 @@ import json
 import datetime
 import os
 
-from scraper import scrape_resort
+from scraper_v2 import scrape_resort
 from resorts import RESORTS
 from season import season_active
 
