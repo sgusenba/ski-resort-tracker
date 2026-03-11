@@ -88,5 +88,50 @@
         "valley_run": null
       }
     ]
+  },
+  {
+    "date": "2026-03-11",
+    "resorts": [
+      {
+        "resort": "Kasberg",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "slopes_km_open": null,
+        "slopes_km_total": null,
+        "valley_run": null
+      },
+      {
+        "resort": "Feuerkogel",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "slopes_km_open": null,
+        "slopes_km_total": null,
+        "valley_run": null
+      },
+      {
+        "resort": "Gosau",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "slopes_km_open": null,
+        "slopes_km_total": null,
+        "valley_run": null
+      },
+      {
+        "resort": "Werfenweng",
+        "lifts_open": null,
+        "lifts_total": null,
+        "slopes_open": null,
+        "slopes_total": null,
+        "slopes_km_open": null,
+        "slopes_km_total": null,
+        "valley_run": null
+      }
+    ]
   }
 ]
